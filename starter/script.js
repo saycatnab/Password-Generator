@@ -96,10 +96,13 @@ function getPasswordOptions() {
   )
 
   // alert(length)
+  // If the user inputs a string ie NaN then this alert will pop up
   if(isNaN(length) === true){
     alert(`Please enter a number.`)
     return
   }
+
+  // Given a min of 10 and max of 64 for user input password length
   if(length < 10){
     alert(`Password length must be at least 10 characters long.`)
     return
@@ -108,6 +111,8 @@ function getPasswordOptions() {
     alert(`Password length must be less than 65 characters long.`)
     return
   }
+
+  // Give user options by confirming if theyd like special, numeric, lower case, upper case characters
 
   let hasSpecialCharacters = confirm(
     "Would you like special characters in your password? Click OK for yes."
@@ -124,6 +129,7 @@ function getPasswordOptions() {
   
   )
 
+  // To make sure the user picks at least one, this conditional is put here ('false' here means if they clicked 'cancel' on all the confirm prompts)
   if(hasSpecialCharacters === false &&
     hasNumericCharacters === false &&
     hasUpperCaseCharacters === false &&
