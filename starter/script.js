@@ -88,12 +88,50 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+// Start with the prompts first, this collects user input and then everything after will be logic based on user input.
 // Function to prompt user for password options
 function getPasswordOptions() {
   let length = parseInt(
     prompt("Please write down the length you want your password to be")
   )
-  alert(length)
+
+  // alert(length)
+  if(isNaN(length) === true){
+    alert(`Please enter a number.`)
+    return
+  }
+  if(length < 10){
+    alert(`Password length must be at least 10 characters long.`)
+    return
+  }
+  if(length >= 65){
+    alert(`Password length must be less than 65 characters long.`)
+    return
+  }
+
+  let hasSpecialCharacters = confirm(
+    "Would you like special characters in your password? Click OK for yes."
+  )
+
+  let hasNumericCharacters = confirm(
+    "Would you like numeric characters in your password? Click OK for yes."
+  )
+  let hasLowerCasedCharacters = confirm(
+    "Would you like lower-cased character characters in your password? Click OK for yes."
+  )
+  let hasUpperCaseCharacters = confirm(
+    "Would you like upper-cased characters in your password? Click OK for yes."
+  
+  )
+
+  if(hasSpecialCharacters === false &&
+    hasNumericCharacters === false &&
+    hasUpperCaseCharacters === false &&
+    hasLowerCasedCharacters === false
+    ) {
+      alert(`You must pick at least one!`)
+    }
+    return
 }
 
 // Function for getting a random element from an array
