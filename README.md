@@ -21,7 +21,7 @@ This is how the Financial Analysis looks in the console
 
 ![Generated Password](./img/Password-Generator-website.png)
 
-# Link to Deployed Application
+# Link to Deployed Applications
 
 https://saycatnab.github.io/Password-Generator/
 
