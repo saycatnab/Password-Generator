@@ -190,6 +190,20 @@ function generatePassword() {
     possibleCharacter = possibleCharacter.concat(upperCasedCharacters)
     guaranteedCharacter.push(getRandom(upperCasedCharacters))
   }
+
+  for(let index= 0; index < options.length; index++){
+    var generated = getRandom(possibleCharacter)
+    console.log(generated)
+    result.push(generated)
+  }
+
+  // for(let index = 0; index < guaranteedCharacter.length; index++){
+  //   result[index] = guaranteedCharacter[index]
+  // }
+
+  console.log(result)
+
+  return result.join("")
 }
 
 // Get references to the #generate element
