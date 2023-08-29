@@ -136,8 +136,20 @@ function getPasswordOptions() {
     hasLowerCasedCharacters === false
     ) {
       alert(`You must pick at least one!`)
-    }
-    return
+      return;
+  }
+    
+
+  let passwordOptions = {
+    length: length,
+    hasSpecialCharacters: hasSpecialCharacters,
+    hasUpperCaseCharacters: hasUpperCaseCharacters,
+    hasLowerCasedCharacters: hasLowerCasedCharacters,
+    hasNumericCharacters: hasNumericCharacters
+  }    
+
+  console.log(passwordOptions)
+  return passwordOptions
 }
 
 // Function for getting a random element from an array
