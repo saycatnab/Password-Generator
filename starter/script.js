@@ -132,7 +132,7 @@ function getPasswordOptions() {
   // To make sure the user picks at least one, this conditional is put here ('false' here means if they clicked 'cancel' on all the confirm prompts)
   if(hasSpecialCharacters === false &&
     hasNumericCharacters === false &&
-    hasUpperCaseCharacters === false &&
+    hasUpperCasedCharacters === false &&
     hasLowerCasedCharacters === false
     ) {
       alert(`You must pick at least one!`)
@@ -143,7 +143,7 @@ function getPasswordOptions() {
   let passwordOptions = {
     length: length,
     hasSpecialCharacters: hasSpecialCharacters,
-    hasUpperCaseCharacters: hasUpperCaseCharacters,
+    hasUpperCasedCharacters: hasUpperCaseCharacters,
     hasLowerCasedCharacters: hasLowerCasedCharacters,
     hasNumericCharacters: hasNumericCharacters
   }    
@@ -163,6 +163,33 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
   let options = getPasswordOptions()
+  console.log(options)
+
+  let result = []
+
+  let possibleCharacter = []
+  let guaranteedCharacter = []
+
+  if (options.hasSpecialCharacters){
+    possibleCharacter = possibleCharacter.concat(specialCharacters)
+    guaranteedCharacter.push(getRandom(specialCharacters))
+  }
+
+  // console.log(possibleCharacter)
+  // console.log(guaranteedCharacter) 
+  if (options.hasNumericCharacters){
+    possibleCharacter = possibleCharacter.concat(numericCharacters)
+    guaranteedCharacter.push(getRandom(numericCharacters))
+  }
+
+  if (options.hasLowerCasedCharacters){
+    possibleCharacter = possibleCharacter.concat(lowerCasedCharacters)
+    guaranteedCharacter.push(getRandom(lowerCasedCharacters))
+  }
+  if (options.hasUpperCasedCharacters){
+    possibleCharacter = possibleCharacter.concat(upperCasedCharacters)
+    guaranteedCharacter.push(getRandom(upperCasedCharacters))
+  }
 }
 
 // Get references to the #generate element
